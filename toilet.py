@@ -29,7 +29,7 @@ class Toilet:
 
     def draw_toilet_water(self):
         # can't go past max level of water
-        if (self.water_level < MAX_LEVELS) and (time.time() - self.start_time > self.water_level * TIME_PER_LEVEL):
+        if (self.water_level < MAX_WATER_LEVELS) and (time.time() - self.start_time > self.water_level * TIME_PER_LEVEL):
             self.water_level += 1
             pg.draw.ellipse(self.screen, TOILET_WATER_BLUE, (self.get_water_start_x(), self.get_water_start_y(),
                                                              self.get_water_width(), self.get_water_height()), 0)
@@ -42,7 +42,7 @@ class Toilet:
         return (SCREEN_HEIGHT - (self.get_water_height())) / 2
 
     def get_water_width(self):
-        return (INNER_BOWL_WIDTH / MAX_LEVELS) * self.water_level
+        return WATER_INITIAL_WIDTH + (WATER_WIDTH_ADDITION_PER_LEVEL * self.water_level)
 
     def get_water_height(self):
-        return (INNER_BOWL_HEIGHT / MAX_LEVELS) * self.water_level
+        return WATER_INITIAL_HEIGHT + (WATER_HEIGHT_ADDITION_PER_LEVEL * self.water_level)
