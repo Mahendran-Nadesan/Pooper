@@ -6,7 +6,7 @@ AUTHORS = 'Mahen & Jono'
 
 # game
 MAX_LEVELS = 10
-TIME_PER_LEVEL = 1  # in seconds
+TIME_PER_LEVEL = 10  # in seconds
 
 # screen
 SCREEN_WIDTH = 1280
